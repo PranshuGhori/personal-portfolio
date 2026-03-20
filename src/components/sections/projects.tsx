@@ -20,8 +20,8 @@ const PROJECTS = [
       "Evaluated using cross-validation and RMSE",
       "Saved deployable artifact with joblib"
     ],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/PranshuGhori/california-housing-price-prediction",
+    demo: "https://github.com/PranshuGhori/california-housing-price-prediction",
     glowColor: "electric-blue",
     placeholder: false,
   },
@@ -37,9 +37,26 @@ const PROJECTS = [
       "Found late aircraft and carrier operations were major contributors to delay minutes",
       "Produced visual reports with actionable insights"
     ],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/PranshuGhori/flightdata-eda",
+    demo: "https://github.com/PranshuGhori/flightdata-eda",
     glowColor: "violet",
+    placeholder: false,
+  },
+  {
+    title: "Corporate Brochure Generator",
+    icon: <BrainCircuit className="w-6 h-6 text-orange-400" />,
+    tech: ["Python", "xAI Grok", "LLM", "Web Scraping", "Jupyter"],
+    aiTag: true,
+    summary: [
+      "End-to-end pipeline that scrapes any corporate website and generates a polished company brochure",
+      "Fetches all links from a homepage, then uses Grok to filter only relevant pages (About, Products, Careers, etc.)",
+      "Scrapes each selected page and passes consolidated content to Grok for brochure generation",
+      "Outputs formatted Markdown ready for publishing or export",
+      "Modular structure: scraper.py handles all web utilities, brochure.ipynb orchestrates the full pipeline"
+    ],
+    github: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
+    demo: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
+    glowColor: "orange",
     placeholder: false,
   },
   {
@@ -109,6 +126,13 @@ const GLOW_CLASSES: Record<string, { hover: string; bar: string; icon: string; d
     icon: "group-hover:bg-violet/10 group-hover:border-violet/30",
     dot: "bg-violet/70",
     btn: "bg-gradient-to-r from-violet to-fuchsia-600 text-white hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] border-none",
+  },
+  orange: {
+    hover: "hover:border-orange-400/40 hover:shadow-[0_0_30px_rgba(251,146,60,0.15)]",
+    bar: "bg-orange-400",
+    icon: "group-hover:bg-orange-400/10 group-hover:border-orange-400/30",
+    dot: "bg-orange-400/70",
+    btn: "bg-gradient-to-r from-orange-500 to-amber-400 text-white hover:shadow-[0_0_20px_rgba(251,146,60,0.5)] border-none",
   },
   cyan: {
     hover: "hover:border-cyan-400/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]",
