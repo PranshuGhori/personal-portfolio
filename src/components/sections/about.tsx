@@ -23,7 +23,7 @@ export function About() {
             className="flex-1 space-y-6"
           >
             <p className="text-lg text-slate-300 leading-relaxed">
-              I'm pursuing concurrent degrees in <strong className="text-white">B.S. Artificial Intelligence</strong> and <strong className="text-white">B.S. Business Data Analytics (STEM)</strong> at Arizona State University, maintaining a 4.0 GPA. My focus sits at the intersection of language models, autonomous agents, and real-world data systems.
+              I'm pursuing concurrent degrees in <strong className="text-white">B.S. Artificial Intelligence (STEM)</strong> and <strong className="text-white">B.S. Business Data Analytics (STEM)</strong> at Arizona State University, maintaining a 4.0 GPA. My focus sits at the intersection of language models, autonomous agents, and real-world data systems.
             </p>
             <p className="text-lg text-slate-300 leading-relaxed">
               I specialize in <span className="text-electric-blue">LLM engineering, agentic orchestration with LangGraph, and RAG pipeline design</span>. From building multi-agent systems with shared state and conditional routing to wiring retrieval layers over vector databases like FAISS and Pinecone — I engineer AI systems that reason, retrieve, and act.

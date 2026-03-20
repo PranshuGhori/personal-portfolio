@@ -37,7 +37,7 @@ export function Education() {
                 
                 <div className="mb-2 space-y-1">
                   <h4 className="text-xl text-slate-200 font-semibold">B.S. Business Data Analytics <span className="text-sm font-normal text-slate-400">(STEM-Designated)</span></h4>
-                  <h4 className="text-xl text-slate-200 font-semibold">B.S. Artificial Intelligence</h4>
+                  <h4 className="text-xl text-slate-200 font-semibold">B.S. Artificial Intelligence <span className="text-sm font-normal text-slate-400">(STEM-Designated)</span></h4>
                   <p className="text-xs text-violet font-medium uppercase tracking-wider">Concurrent Degrees</p>
                 </div>
                 <p className="text-slate-400 mb-6">Aug 2024 – Dec 2027</p>
