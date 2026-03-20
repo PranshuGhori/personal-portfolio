@@ -9,8 +9,8 @@ export function Footer() {
           Pranshu Ghori
         </div>
         <p className="text-slate-400 text-center max-w-md mb-8">
-          Data Analytics Student | Machine Learning Enthusiast <br />
-          Building End-to-End Data & ML Workflows.
+          AI Engineer · LLM Agents · RAG Systems <br />
+          Building intelligent systems at the intersection of data, language, and autonomous AI.
         </p>
 
         <div className="flex space-x-6 mb-12">

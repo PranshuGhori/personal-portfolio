@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Mail, Terminal, Database, DatabaseZap } from "lucide-react";
+import { ArrowRight, Download, Mail, BrainCircuit } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -48,7 +48,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl md:text-2xl font-medium text-slate-300 mb-4 max-w-2xl mx-auto md:mx-0"
           >
-            Data Analytics Student | Machine Learning Enthusiast <br/> Building End-to-End Data & ML Workflows.
+            AI Engineer · LLM Agents · RAG Systems
           </motion.p>
 
           <motion.p
@@ -57,7 +57,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed text-lg"
           >
-            ASU student focused on Python, SQL, machine learning, analytics, and real-world data systems.
+            Building intelligent systems at the intersection of data, language, and autonomous AI.
           </motion.p>
 
           <motion.div
@@ -104,61 +104,78 @@ export function Hero() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="text-xs text-slate-500 font-mono">model_pipeline.py</div>
+                <div className="text-xs text-slate-500 font-mono">agent_graph.py</div>
               </div>
               
               <div className="space-y-4 font-mono text-sm">
                 <div className="flex items-start">
                   <span className="text-violet mr-3">1</span>
-                  <span className="text-pink-400">import</span>
-                  <span className="text-slate-300 ml-2">pandas</span>
-                  <span className="text-pink-400 ml-2">as</span>
-                  <span className="text-slate-300 ml-2">pd</span>
+                  <span className="text-pink-400">from</span>
+                  <span className="text-slate-300 ml-2">langgraph.graph</span>
+                  <span className="text-pink-400 ml-2">import</span>
+                  <span className="text-electric-blue ml-2">StateGraph</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">2</span>
                   <span className="text-pink-400">from</span>
-                  <span className="text-slate-300 ml-2">sklearn.ensemble</span>
+                  <span className="text-slate-300 ml-2">langchain_openai</span>
                   <span className="text-pink-400 ml-2">import</span>
-                  <span className="text-electric-blue ml-2">RandomForestRegressor</span>
+                  <span className="text-electric-blue ml-2">ChatOpenAI</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">3</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">4</span>
-                  <span className="text-slate-400 italic"># Initialize ML Pipeline</span>
+                  <span className="text-slate-400 italic"># Build agentic RAG pipeline</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">5</span>
-                  <span className="text-slate-300">model = RandomForestRegressor(</span>
+                  <span className="text-slate-300">llm = </span>
+                  <span className="text-electric-blue">ChatOpenAI</span>
+                  <span className="text-slate-300">(</span>
+                  <span className="text-cyan">model</span>
+                  <span className="text-slate-300">=</span>
+                  <span className="text-green-400">"gpt-4o"</span>
+                  <span className="text-slate-300">)</span>
                 </div>
-                <div className="flex items-start ml-8">
+                <div className="flex items-start">
                   <span className="text-violet mr-3">6</span>
-                  <span className="text-cyan">n_estimators</span>
-                  <span className="text-slate-300">=</span>
-                  <span className="text-orange-400">100</span>
-                  <span className="text-slate-300">,</span>
+                  <span className="text-slate-300">graph = </span>
+                  <span className="text-electric-blue">StateGraph</span>
+                  <span className="text-slate-300">(AgentState)</span>
                 </div>
-                <div className="flex items-start ml-8">
+                <div className="flex items-start">
                   <span className="text-violet mr-3">7</span>
-                  <span className="text-cyan">random_state</span>
-                  <span className="text-slate-300">=</span>
-                  <span className="text-orange-400">42</span>
+                  <span className="text-slate-300">graph.</span>
+                  <span className="text-cyan">add_node</span>
+                  <span className="text-slate-300">(</span>
+                  <span className="text-green-400">"retrieve"</span>
+                  <span className="text-slate-300">, retriever)</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">8</span>
-                  <span className="text-slate-300">)</span>
+                  <span className="text-slate-300">graph.</span>
+                  <span className="text-cyan">add_node</span>
+                  <span className="text-slate-300">(</span>
+                  <span className="text-green-400">"reason"</span>
+                  <span className="text-slate-300">, llm_step)</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">9</span>
+                  <span className="text-slate-300">graph.</span>
+                  <span className="text-cyan">add_edge</span>
+                  <span className="text-slate-300">(</span>
+                  <span className="text-green-400">"retrieve"</span>
+                  <span className="text-slate-300">, </span>
+                  <span className="text-green-400">"reason"</span>
+                  <span className="text-slate-300">)</span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-violet mr-3">10</span>
-                  <span className="text-electric-blue">print</span>
-                  <span className="text-slate-300">(</span>
-                  <span className="text-green-400">"Deploying data solutions..."</span>
-                  <span className="text-slate-300">)</span>
+                  <span className="text-slate-300">app = graph.</span>
+                  <span className="text-cyan">compile</span>
+                  <span className="text-slate-300">()</span>
                 </div>
               </div>
             </div>
@@ -170,11 +187,11 @@ export function Hero() {
               className="absolute -bottom-6 -right-6 glass border-white/10 p-4 rounded-xl shadow-lg flex items-center space-x-3 backdrop-blur-md"
             >
               <div className="bg-electric-blue/20 p-2 rounded-lg">
-                <DatabaseZap className="text-electric-blue w-6 h-6" />
+                <BrainCircuit className="text-electric-blue w-6 h-6" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-200">Data Optimized</div>
-                <div className="text-[10px] text-green-400">99.9% Accuracy</div>
+                <div className="text-xs font-bold text-slate-200">Agent Online</div>
+                <div className="text-[10px] text-green-400">RAG · Tools · Memory</div>
               </div>
             </motion.div>
           </div>
@@ -190,15 +207,15 @@ export function Hero() {
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Cum. GPA</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-3xl font-bold text-white mb-1">10+</span>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Projects Built</span>
+              <span className="text-3xl font-bold text-white mb-1">5+</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">AI Agents Built</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
               <span className="text-3xl font-bold text-white mb-1">2027</span>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Graduation Year</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-xl font-bold text-white mb-1 text-electric-blue">Data / ML</span>
+              <span className="text-xl font-bold text-white mb-1 text-electric-blue">LLM Agents</span>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Primary Focus</span>
             </div>
           </div>
