@@ -60,21 +60,21 @@ const PROJECTS = [
     placeholder: false,
   },
   {
-    title: "Warehouse Ops Agent",
+    title: "RAG Q&A — Powered by LLM (Grok)",
     icon: <Bot className="w-6 h-6 text-cyan-400" />,
-    tech: ["LangGraph", "Python", "Custom Tools", "SQL"],
+    tech: ["LangChain", "xAI Grok", "ChromaDB", "OpenAI Embeddings", "FastAPI", "Streamlit"],
     aiTag: true,
     summary: [
-      "Domain-specific agentic system for warehouse operations automation",
-      "LangGraph orchestration with custom tool nodes for inventory queries and order routing",
-      "Natural language interface over structured warehouse data via SQL tool calls",
-      "Agent memory for multi-turn operational context across a session",
-      "Designed for real-world constraints — deterministic fallbacks and human-in-the-loop hooks"
+      "Production-ready RAG pipeline — ingest PDFs, TXT files, or URLs into a persisted ChromaDB vector store",
+      "OpenAI embeddings for retrieval; Grok LLM for grounded, streaming answers with source citations",
+      "Three interfaces: Rich CLI with conversation memory, Streamlit chat UI, and FastAPI REST + SSE streaming",
+      "Modular rag/ core package (config, chain, ingest) shared across all interfaces",
+      "Docker Compose support for one-command deployment"
     ],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/PranshuGhori/documentloader",
+    demo: "https://github.com/PranshuGhori/documentloader",
     glowColor: "cyan",
-    placeholder: true,
+    placeholder: false,
   },
   {
     title: "California Housing Price Prediction",
