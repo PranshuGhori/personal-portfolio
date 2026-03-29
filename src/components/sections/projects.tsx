@@ -9,57 +9,6 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
-    title: "California Housing Price Prediction",
-    icon: <HomeIcon className="w-6 h-6 text-electric-blue" />,
-    tech: ["Python", "scikit-learn", "Pandas", "NumPy"],
-    aiTag: false,
-    summary: [
-      "Built an end-to-end regression ML pipeline",
-      "Used stratified train/test split, preprocessing with ColumnTransformer, and unified Pipeline",
-      "Engineered predictive features like log transforms, ratio metrics, geo-cluster similarity",
-      "Evaluated using cross-validation and RMSE",
-      "Saved deployable artifact with joblib"
-    ],
-    github: "https://github.com/PranshuGhori/california-housing-price-prediction",
-    demo: "https://github.com/PranshuGhori/california-housing-price-prediction",
-    glowColor: "electric-blue",
-    placeholder: false,
-  },
-  {
-    title: "U.S. Flight Delay & Cancellation Analysis",
-    icon: <LineChart className="w-6 h-6 text-violet" />,
-    tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
-    aiTag: false,
-    summary: [
-      "Analyzed 3 million U.S. flight records",
-      "Identified delay and cancellation patterns by airline, route, season, and operational cause",
-      "Engineered time-based features such as hour, weekday, and season",
-      "Found late aircraft and carrier operations were major contributors to delay minutes",
-      "Produced visual reports with actionable insights"
-    ],
-    github: "https://github.com/PranshuGhori/flightdata-eda",
-    demo: "https://github.com/PranshuGhori/flightdata-eda",
-    glowColor: "violet",
-    placeholder: false,
-  },
-  {
-    title: "Corporate Brochure Generator",
-    icon: <BrainCircuit className="w-6 h-6 text-orange-400" />,
-    tech: ["Python", "xAI Grok", "LLM", "Web Scraping", "Jupyter"],
-    aiTag: true,
-    summary: [
-      "End-to-end pipeline that scrapes any corporate website and generates a polished company brochure",
-      "Fetches all links from a homepage, then uses Grok to filter only relevant pages (About, Products, Careers, etc.)",
-      "Scrapes each selected page and passes consolidated content to Grok for brochure generation",
-      "Outputs formatted Markdown ready for publishing or export",
-      "Modular structure: scraper.py handles all web utilities, brochure.ipynb orchestrates the full pipeline"
-    ],
-    github: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
-    demo: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
-    glowColor: "orange",
-    placeholder: false,
-  },
-  {
     title: "RAG Agent",
     icon: <BrainCircuit className="w-6 h-6 text-electric-blue" />,
     tech: ["LangChain", "FAISS", "FastAPI", "Python", "OpenAI"],
@@ -94,6 +43,23 @@ const PROJECTS = [
     placeholder: true,
   },
   {
+    title: "Corporate Brochure Generator",
+    icon: <BrainCircuit className="w-6 h-6 text-orange-400" />,
+    tech: ["Python", "xAI Grok", "LLM", "Web Scraping", "Jupyter"],
+    aiTag: true,
+    summary: [
+      "End-to-end pipeline that scrapes any corporate website and generates a polished company brochure",
+      "Fetches all links from a homepage, then uses Grok to filter only relevant pages (About, Products, Careers, etc.)",
+      "Scrapes each selected page and passes consolidated content to Grok for brochure generation",
+      "Outputs formatted Markdown ready for publishing or export",
+      "Modular structure: scraper.py handles all web utilities, brochure.ipynb orchestrates the full pipeline"
+    ],
+    github: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
+    demo: "https://github.com/PranshuGhori/Corporate-Brochure-Generator",
+    glowColor: "orange",
+    placeholder: false,
+  },
+  {
     title: "Warehouse Ops Agent",
     icon: <Bot className="w-6 h-6 text-cyan-400" />,
     tech: ["LangGraph", "Python", "Custom Tools", "SQL"],
@@ -109,6 +75,40 @@ const PROJECTS = [
     demo: "https://github.com",
     glowColor: "cyan",
     placeholder: true,
+  },
+  {
+    title: "California Housing Price Prediction",
+    icon: <HomeIcon className="w-6 h-6 text-electric-blue" />,
+    tech: ["Python", "scikit-learn", "Pandas", "NumPy"],
+    aiTag: false,
+    summary: [
+      "Built an end-to-end regression ML pipeline",
+      "Used stratified train/test split, preprocessing with ColumnTransformer, and unified Pipeline",
+      "Engineered predictive features like log transforms, ratio metrics, geo-cluster similarity",
+      "Evaluated using cross-validation and RMSE",
+      "Saved deployable artifact with joblib"
+    ],
+    github: "https://github.com/PranshuGhori/california-housing-price-prediction",
+    demo: "https://github.com/PranshuGhori/california-housing-price-prediction",
+    glowColor: "electric-blue",
+    placeholder: false,
+  },
+  {
+    title: "U.S. Flight Delay & Cancellation Analysis",
+    icon: <LineChart className="w-6 h-6 text-violet" />,
+    tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    aiTag: false,
+    summary: [
+      "Analyzed 3 million U.S. flight records",
+      "Identified delay and cancellation patterns by airline, route, season, and operational cause",
+      "Engineered time-based features such as hour, weekday, and season",
+      "Found late aircraft and carrier operations were major contributors to delay minutes",
+      "Produced visual reports with actionable insights"
+    ],
+    github: "https://github.com/PranshuGhori/flightdata-eda",
+    demo: "https://github.com/PranshuGhori/flightdata-eda",
+    glowColor: "violet",
+    placeholder: false,
   },
 ];
 
