@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Download, Send } from "lucide-react";
+import { Mail, MapPin, Download, Send } from "lucide-react";
 
 export function Contact() {
   return (
@@ -37,12 +37,6 @@ export function Contact() {
                       <Mail className="w-5 h-5 text-electric-blue" />
                     </div>
                     <span className="text-lg">pranshughori203@gmail.com</span>
-                  </a>
-                  <a href="tel:+12126410815" className="flex items-center text-slate-300 hover:text-cyan transition-colors group">
-                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-cyan/10 transition-colors">
-                      <Phone className="w-5 h-5 text-cyan" />
-                    </div>
-                    <span className="text-lg">+1 (212) 641-0815</span>
                   </a>
                   <div className="flex items-center text-slate-300 group cursor-default">
                     <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-violet/10 transition-colors">
