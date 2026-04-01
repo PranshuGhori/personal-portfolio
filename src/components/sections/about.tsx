@@ -26,10 +26,10 @@ export function About() {
               I'm pursuing concurrent degrees in <strong className="text-white">B.S. Artificial Intelligence (STEM)</strong> and <strong className="text-white">B.S. Business Data Analytics (STEM)</strong> at Arizona State University, maintaining a 4.0 GPA. My focus sits at the intersection of language models, autonomous agents, and real-world data systems.
             </p>
             <p className="text-lg text-slate-300 leading-relaxed">
-              I specialize in <span className="text-electric-blue">LLM engineering, agentic orchestration with LangGraph, and RAG pipeline design</span>. From building multi-agent systems with shared state and conditional routing to wiring retrieval layers over vector databases like FAISS and Pinecone — I engineer AI systems that reason, retrieve, and act.
+              I specialize in <span className="text-electric-blue">LLM engineering, agentic orchestration with LangGraph, and RAG pipeline design</span>. From building multimodal compliance auditing systems on Azure — using Azure Video Indexer, Azure AI Search, and GPT-4o — to production RAG pipelines over FAISS and Pinecone, I engineer AI systems that reason, retrieve, and act with full observability via LangSmith and Azure Application Insights.
             </p>
             <p className="text-lg text-slate-300 leading-relaxed">
-              I'm particularly drawn to <strong className="text-white">autonomous AI agents, domain-specific tooling, and applied generative AI</strong> — systems where language models move beyond chat and become reliable components in production workflows.
+              I'm particularly drawn to <strong className="text-white">autonomous AI agents, domain-specific tooling, and applied generative AI</strong> — systems where language models move beyond chat and become reliable, observable components in production workflows. My ML engineering background in Scikit-learn and MLOps grounds the AI work in solid engineering fundamentals.
             </p>
           </motion.div>
 
@@ -67,7 +67,7 @@ export function About() {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">RAG & Retrieval</h3>
               <p className="text-sm text-slate-400">
-                Vector search, embeddings, and knowledge retrieval systems using FAISS and Pinecone.
+                Vector search, embeddings, and knowledge retrieval using FAISS, Pinecone, and Azure AI Search.
               </p>
             </div>
 
