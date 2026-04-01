@@ -9,38 +9,20 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
-    title: "RAG Agent",
-    icon: <BrainCircuit className="w-6 h-6 text-electric-blue" />,
-    tech: ["LangChain", "FAISS", "FastAPI", "Python", "OpenAI"],
+    title: "Video Compliance QA Pipeline",
+    icon: <Network className="w-6 h-6 text-electric-blue" />,
+    tech: ["LangGraph", "Azure Video Indexer", "RAG", "Azure AI Search", "Azure OpenAI", "GPT-4o", "LangSmith", "Python"],
     aiTag: true,
     summary: [
-      "Retrieval-Augmented Generation pipeline with document ingestion and vector indexing",
-      "FAISS vector store for fast semantic similarity search over embedded knowledge base",
-      "LangChain orchestration for context retrieval, prompt construction, and LLM reasoning",
-      "FastAPI backend exposing a query endpoint for real-time Q&A over custom documents",
-      "Designed for extensibility — swap vector store or LLM provider without re-architecting"
+      "Built a production-grade video compliance auditing system orchestrated by LangGraph — ingesting multimodal content via Azure Video Indexer (transcripts + OCR) and detecting regulatory violations using RAG powered by Azure AI Search and Azure OpenAI embeddings.",
+      "Engineered the core reasoning engine using GPT-4o to deterministically synthesize compliance rules against extracted video content, generating structured JSON reports.",
+      "Integrated LangSmith for LLM tracing and Azure Application Insights for production-grade telemetry and full-stack observability.",
+      "Designed end-to-end modular architecture with clean separation across ingestion, retrieval, reasoning, and reporting stages — deterministic outputs with deep observability at every layer."
     ],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/PranshuGhori",
+    demo: "https://github.com/PranshuGhori",
     glowColor: "electric-blue",
-    placeholder: true,
-  },
-  {
-    title: "Multi-Agent System",
-    icon: <Network className="w-6 h-6 text-violet" />,
-    tech: ["LangGraph", "Python", "OpenAI", "Anthropic"],
-    aiTag: true,
-    summary: [
-      "Graph-based multi-agent architecture using LangGraph StateGraph",
-      "Specialized agents for planning, tool execution, and reflection in a cyclic workflow",
-      "Shared agent state with typed annotations for inter-agent communication",
-      "Conditional routing logic to handle retries, tool failures, and escalation paths",
-      "Modular node design — agents can be hot-swapped or extended independently"
-    ],
-    github: "https://github.com",
-    demo: "https://github.com",
-    glowColor: "violet",
-    placeholder: true,
+    placeholder: false,
   },
   {
     title: "Corporate Brochure Generator",
@@ -60,16 +42,14 @@ const PROJECTS = [
     placeholder: false,
   },
   {
-    title: "RAG Q&A — Powered by LLM (Grok)",
+    title: "DocumentLoader — Production RAG Pipeline",
     icon: <Bot className="w-6 h-6 text-cyan-400" />,
-    tech: ["LangChain", "xAI Grok", "ChromaDB", "OpenAI Embeddings", "FastAPI", "Streamlit"],
+    tech: ["LangChain", "LangGraph", "FAISS", "OpenAI", "Anthropic", "FastAPI", "Python"],
     aiTag: true,
     summary: [
-      "Production-ready RAG pipeline — ingest PDFs, TXT files, or URLs into a persisted ChromaDB vector store",
-      "OpenAI embeddings for retrieval; Grok LLM for grounded, streaming answers with source citations",
-      "Three interfaces: Rich CLI with conversation memory, Streamlit chat UI, and FastAPI REST + SSE streaming",
-      "Modular rag/ core package (config, chain, ingest) shared across all interfaces",
-      "Docker Compose support for one-command deployment"
+      "Built a production-ready RAG pipeline supporting natural language Q&A over custom documents with streaming responses, source citations, and multi-turn memory — reducing retrieval latency via FAISS nearest-neighbor search and dynamic document ingestion at runtime.",
+      "Orchestrated the full retrieval-to-reasoning loop using LangChain and LangGraph — context retrieval, prompt construction, LLM chaining, and fallback handling.",
+      "Architected for full provider portability (FAISS → Pinecone, OpenAI → Anthropic) without re-architecting the pipeline."
     ],
     github: "https://github.com/PranshuGhori/documentloader",
     demo: "https://github.com/PranshuGhori/documentloader",

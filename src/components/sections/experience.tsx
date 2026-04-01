@@ -7,13 +7,11 @@ import { Briefcase, Calendar } from "lucide-react";
 const EXPERIENCES = [
   {
     role: "Data Analytics Assistant",
-    company: "ET Network Infrastructure Expansion – Arizona State University",
+    company: "ET Network Infrastructure – Arizona State University",
     date: "Jun 2025 – Present",
     bullets: [
-      "Used ServiceNow to monitor and manage network hardware inventory across lifecycle stages",
-      "Exported structured inventory datasets and analyzed them using Excel and Python",
-      "Performed data auditing, cleaning, and reconciliation including null/duplicate/outlier validation",
-      "Delivered concise reports and dashboards summarizing asset status trends"
+      "Analyzed network hardware inventory data in Python, Pandas, and SQL across 1,000+ assets — identifying discrepancies, null fields, and duplicate records to improve data quality for audit cycles.",
+      "Built automated ETL pipelines to clean, reconcile, and visualize inventory datasets using Python and Power BI — eliminating manual reconciliation steps and delivering recurring dashboards to infrastructure leadership."
     ],
     color: "electric-blue"
   },
@@ -22,11 +20,20 @@ const EXPERIENCES = [
     company: "Global HyPT Center – Arizona State University",
     date: "Dec 2024 – Jun 2025",
     bullets: [
-      "Maintained and updated university web pages following accessibility and design standards",
-      "Used HTML and CSS to edit layouts and fix formatting inconsistencies",
-      "Performed QA validation before publication for layout, links, and responsive performance"
+      "Maintained 20+ university web pages using HTML and CSS; performed pre-publication QA validation catching layout breaks, dead links, and responsive failures before production."
     ],
     color: "violet"
+  },
+  {
+    role: "ML Engineer Intern",
+    company: "Bigscal Technologies Pvt. Ltd.",
+    date: "May 2023 – Sep 2023",
+    bullets: [
+      "Assisted the ML engineering team building end-to-end production ML pipelines — contributing to data preprocessing, feature engineering, and model training workflows using Python and Scikit-learn.",
+      "Built and tested classification and regression models using Scikit-learn, supporting model selection, hyperparameter tuning, and performance benchmarking across multiple production use cases.",
+      "Supported MLOps workflows by contributing to model deployment and monitoring tasks — gaining hands-on experience with production-grade ML lifecycle management and pipeline integration."
+    ],
+    color: "orange"
   }
 ];
 
@@ -52,7 +59,7 @@ export function Experience() {
               {/* Timeline dot */}
               <div 
                 className={`absolute left-0 md:left-1/2 w-4 h-4 rounded-full border-4 border-[#020617] -translate-x-[9px] md:-translate-x-1/2 mt-1.5 z-10
-                  ${exp.color === 'electric-blue' ? 'bg-electric-blue border-electric-blue/20 shadow-[0_0_10px_rgba(0,240,255,0.8)]' : 'bg-violet border-violet/20 shadow-[0_0_10px_rgba(139,92,246,0.8)]'}
+                  ${exp.color === 'electric-blue' ? 'bg-electric-blue border-electric-blue/20 shadow-[0_0_10px_rgba(0,240,255,0.8)]' : exp.color === 'violet' ? 'bg-violet border-violet/20 shadow-[0_0_10px_rgba(139,92,246,0.8)]' : 'bg-orange-400 border-orange-400/20 shadow-[0_0_10px_rgba(251,146,60,0.8)]'}
                 `} 
               />
               
@@ -80,7 +87,7 @@ export function Experience() {
                     <ul className="space-y-3">
                       {exp.bullets.map((bullet, idx) => (
                         <li key={idx} className="flex items-start text-sm text-slate-400">
-                          <span className={`min-w-[5px] h-[5px] rounded-full mt-2 mr-3 ${exp.color === 'electric-blue' ? 'bg-electric-blue' : 'bg-violet'}`} />
+                          <span className={`min-w-[5px] h-[5px] rounded-full mt-2 mr-3 ${exp.color === 'electric-blue' ? 'bg-electric-blue' : exp.color === 'violet' ? 'bg-violet' : 'bg-orange-400'}`} />
                           <span className="leading-relaxed">{bullet}</span>
                         </li>
                       ))}

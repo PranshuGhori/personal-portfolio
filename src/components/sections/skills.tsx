@@ -5,46 +5,32 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const SKILL_GROUPS = [
   {
-    title: "AI & LLM Engineering",
+    title: "Agentic AI & LLM Engineering",
     accent: "electric-blue",
     hoverBorder: "hover:border-electric-blue/20",
     badgeHover: "hover:border-electric-blue/50 hover:bg-electric-blue/10",
-    skills: ["LLM Engineering", "Prompt Engineering", "API Calling", "OpenAI", "Anthropic Claude", "xAI Grok"],
-  },
-  {
-    title: "Agentic & Orchestration",
-    accent: "violet",
-    hoverBorder: "hover:border-violet/20",
-    badgeHover: "hover:border-violet/50 hover:bg-violet/10",
-    skills: ["LangChain", "LangGraph", "Agentic AI Systems", "Multi-Agent Systems"],
-  },
-  {
-    title: "Retrieval & Knowledge",
-    accent: "cyan",
-    hoverBorder: "hover:border-cyan-400/20",
-    badgeHover: "hover:border-cyan-400/50 hover:bg-cyan-400/10",
-    skills: ["RAG", "Vector Databases", "Embeddings", "FAISS", "Pinecone"],
+    skills: ["LangChain", "LangGraph", "RAG", "Prompt Engineering", "LLM Evaluation", "NLP", "OpenAI API", "Anthropic Claude", "Azure OpenAI", "GPT-4o", "xAI Grok", "FAISS", "Pinecone", "Azure AI Search", "Vector Databases", "Embeddings", "LangSmith", "Azure Application Insights"],
   },
   {
     title: "Machine Learning & Deep Learning",
+    accent: "violet",
+    hoverBorder: "hover:border-violet/20",
+    badgeHover: "hover:border-violet/50 hover:bg-violet/10",
+    skills: ["PyTorch", "TensorFlow", "Scikit-learn", "Transformers", "LSTMs", "Hugging Face", "Deep Learning", "Generative AI", "Fine-Tuning", "Statistical Learning", "Feature Engineering", "Computer Vision"],
+  },
+  {
+    title: "Software Engineering",
+    accent: "cyan",
+    hoverBorder: "hover:border-cyan-400/20",
+    badgeHover: "hover:border-cyan-400/50 hover:bg-cyan-400/10",
+    skills: ["Python", "Go", "Java", "SQL", "Algorithms & Data Structures", "Scalable Architecture", "Design Patterns", "FastAPI", "REST APIs", "Git/GitHub"],
+  },
+  {
+    title: "Data & Visualization",
     accent: "orange",
     hoverBorder: "hover:border-orange-400/20",
     badgeHover: "hover:border-orange-400/50 hover:bg-orange-400/10",
-    skills: ["PyTorch", "Scikit-Learn", "Deep Learning", "Statistical Learning"],
-  },
-  {
-    title: "Generative AI",
-    accent: "fuchsia",
-    hoverBorder: "hover:border-fuchsia-500/20",
-    badgeHover: "hover:border-fuchsia-500/50 hover:bg-fuchsia-500/10",
-    skills: ["Generative AI", "Fine-Tuning"],
-  },
-  {
-    title: "Data & Core Stack",
-    accent: "slate",
-    hoverBorder: "hover:border-slate-400/20",
-    badgeHover: "hover:border-slate-400/50 hover:bg-slate-400/10",
-    skills: ["Python", "Pandas", "NumPy", "SQL", "Jupyter"],
+    skills: ["Pandas", "NumPy", "Matplotlib", "Tableau", "Power BI", "Excel", "Jupyter", "Alteryx", "Amazon Redshift", "ServiceNow", "Azure Video Indexer", "MLOps"],
   },
 ];
 
@@ -53,8 +39,6 @@ const ACCENT_BAR: Record<string, string> = {
   violet: "bg-violet",
   cyan: "bg-cyan-400",
   orange: "bg-orange-400",
-  fuchsia: "bg-fuchsia-500",
-  slate: "bg-slate-400",
 };
 
 const container = {
