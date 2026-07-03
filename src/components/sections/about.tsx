@@ -81,7 +81,7 @@ export function About() {
                 alt="Pranshu Ghori"
                 fill
                 sizes="(max-width: 640px) 100vw, 25vw"
-                className="object-cover object-[center_62%] transition-transform duration-700 group-hover:scale-105"
+                className="object-cover object-[center_70%] transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
