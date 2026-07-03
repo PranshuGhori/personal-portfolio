@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BrainCircuit, Network, Database } from "lucide-react";
+import { BrainCircuit, Network, Database, MapPin } from "lucide-react";
 
 export function About() {
   return (
@@ -74,11 +75,22 @@ export function About() {
               </p>
             </div>
 
-            <div className="glass p-6 rounded-2xl flex flex-col justify-center items-center border border-white/5 bg-gradient-to-br from-electric-blue/5 to-violet/5 sm:translate-y-8">
-               <div className="text-center">
-                 <div className="text-4xl font-bold text-gradient mb-1">4.0</div>
-                 <div className="text-sm text-slate-400 uppercase tracking-widest">GPA @ ASU</div>
-               </div>
+            <div className="glass lift rounded-2xl border border-white/5 hover:border-electric-blue/30 overflow-hidden relative group sm:translate-y-8 min-h-[220px]">
+              <Image
+                src="/pranshu.jpeg"
+                alt="Pranshu Ghori"
+                fill
+                sizes="(max-width: 640px) 100vw, 25vw"
+                className="object-cover object-[center_35%] transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="text-white font-semibold">Pranshu Ghori</div>
+                <div className="flex items-center text-xs text-slate-300 mt-0.5">
+                  <MapPin className="w-3 h-3 mr-1 text-electric-blue" />
+                  Tempe, AZ
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

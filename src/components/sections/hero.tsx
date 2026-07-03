@@ -1,12 +1,68 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Mail, BrainCircuit } from "lucide-react";
 import Link from "next/link";
 
 const TYPED_ROLES = ["LLM Agents", "RAG Systems", "Agentic Workflows", "Production AI"];
+
+// Token styles for the hero code card — mirrors the real Video Compliance QA pipeline
+const TOK: Record<string, string> = {
+  kw: "text-pink-400",
+  mod: "text-slate-300",
+  cls: "text-electric-blue",
+  fn: "text-cyan",
+  str: "text-green-400",
+  com: "text-slate-400 italic",
+  pl: "text-slate-300",
+};
+
+const CODE_LINES: { c: string; t: string }[][] = [
+  [
+    { c: "kw", t: "from" }, { c: "mod", t: " langgraph.graph " },
+    { c: "kw", t: "import" }, { c: "cls", t: " StateGraph" },
+  ],
+  [
+    { c: "kw", t: "from" }, { c: "mod", t: " azure.search.documents " },
+    { c: "kw", t: "import" }, { c: "cls", t: " SearchClient" },
+  ],
+  [],
+  [{ c: "com", t: "# Multimodal compliance audit: video → RAG → report" }],
+  [
+    { c: "pl", t: "graph = " }, { c: "cls", t: "StateGraph" },
+    { c: "pl", t: "(AuditState)" },
+  ],
+  [
+    { c: "pl", t: "graph." }, { c: "fn", t: "add_node" },
+    { c: "pl", t: "(" }, { c: "str", t: "\"ingest\"" },
+    { c: "pl", t: ", index_video)   " }, { c: "com", t: "# transcript + OCR" },
+  ],
+  [
+    { c: "pl", t: "graph." }, { c: "fn", t: "add_node" },
+    { c: "pl", t: "(" }, { c: "str", t: "\"retrieve\"" },
+    { c: "pl", t: ", hybrid_search) " }, { c: "com", t: "# Azure AI Search" },
+  ],
+  [
+    { c: "pl", t: "graph." }, { c: "fn", t: "add_node" },
+    { c: "pl", t: "(" }, { c: "str", t: "\"audit\"" },
+    { c: "pl", t: ", flag_violations) " }, { c: "com", t: "# GPT-4o" },
+  ],
+  [
+    { c: "pl", t: "graph." }, { c: "fn", t: "add_edge" },
+    { c: "pl", t: "(" }, { c: "str", t: "\"ingest\"" },
+    { c: "pl", t: ", " }, { c: "str", t: "\"retrieve\"" }, { c: "pl", t: ")" },
+  ],
+  [
+    { c: "pl", t: "graph." }, { c: "fn", t: "add_edge" },
+    { c: "pl", t: "(" }, { c: "str", t: "\"retrieve\"" },
+    { c: "pl", t: ", " }, { c: "str", t: "\"audit\"" }, { c: "pl", t: ")" },
+  ],
+  [
+    { c: "pl", t: "app = graph." }, { c: "fn", t: "compile" }, { c: "pl", t: "()" },
+  ],
+];
 
 function useTypewriter(words: string[]) {
   const [text, setText] = useState(words[0]);
@@ -39,6 +95,35 @@ function useTypewriter(words: string[]) {
   }, [words]);
 
   return text;
+}
+
+function CountUp({ value, decimals = 0, suffix = "" }: { value: number; decimals?: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  const [display, setDisplay] = useState((0).toFixed(decimals));
+
+  useEffect(() => {
+    if (!inView) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf = 0;
+    const duration = reduced ? 0 : 1400;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = duration === 0 ? 1 : Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay((value * eased).toFixed(decimals));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, value, decimals]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
 }
 
 export function Hero() {
@@ -175,79 +260,20 @@ export function Hero() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="text-xs text-slate-500 font-mono">agent_graph.py</div>
+                <div className="text-xs text-slate-500 font-mono">compliance_graph.py</div>
               </div>
-              
-              <div className="space-y-4 font-mono text-sm">
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">1</span>
-                  <span className="text-pink-400">from</span>
-                  <span className="text-slate-300 ml-2">langgraph.graph</span>
-                  <span className="text-pink-400 ml-2">import</span>
-                  <span className="text-electric-blue ml-2">StateGraph</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">2</span>
-                  <span className="text-pink-400">from</span>
-                  <span className="text-slate-300 ml-2">langchain_openai</span>
-                  <span className="text-pink-400 ml-2">import</span>
-                  <span className="text-electric-blue ml-2">ChatOpenAI</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">3</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">4</span>
-                  <span className="text-slate-400 italic"># Build agentic RAG pipeline</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">5</span>
-                  <span className="text-slate-300">llm = </span>
-                  <span className="text-electric-blue">ChatOpenAI</span>
-                  <span className="text-slate-300">(</span>
-                  <span className="text-cyan">model</span>
-                  <span className="text-slate-300">=</span>
-                  <span className="text-green-400">&quot;gpt-4o&quot;</span>
-                  <span className="text-slate-300">)</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">6</span>
-                  <span className="text-slate-300">graph = </span>
-                  <span className="text-electric-blue">StateGraph</span>
-                  <span className="text-slate-300">(AgentState)</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">7</span>
-                  <span className="text-slate-300">graph.</span>
-                  <span className="text-cyan">add_node</span>
-                  <span className="text-slate-300">(</span>
-                  <span className="text-green-400">&quot;retrieve&quot;</span>
-                  <span className="text-slate-300">, retriever)</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">8</span>
-                  <span className="text-slate-300">graph.</span>
-                  <span className="text-cyan">add_node</span>
-                  <span className="text-slate-300">(</span>
-                  <span className="text-green-400">&quot;reason&quot;</span>
-                  <span className="text-slate-300">, llm_step)</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">9</span>
-                  <span className="text-slate-300">graph.</span>
-                  <span className="text-cyan">add_edge</span>
-                  <span className="text-slate-300">(</span>
-                  <span className="text-green-400">&quot;retrieve&quot;</span>
-                  <span className="text-slate-300">, </span>
-                  <span className="text-green-400">&quot;reason&quot;</span>
-                  <span className="text-slate-300">)</span>
-                </div>
-                <div className="flex items-start">
-                  <span className="text-violet mr-3">10</span>
-                  <span className="text-slate-300">app = graph.</span>
-                  <span className="text-cyan">compile</span>
-                  <span className="text-slate-300">()</span>
-                </div>
+
+              <div className="space-y-2.5 font-mono text-[13px] leading-relaxed overflow-x-auto">
+                {CODE_LINES.map((line, i) => (
+                  <div key={i} className="flex items-start whitespace-pre">
+                    <span className="text-violet mr-3 w-4 text-right select-none shrink-0">{i + 1}</span>
+                    <span>
+                      {line.map((tok, j) => (
+                        <span key={j} className={TOK[tok.c]}>{tok.t}</span>
+                      ))}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -261,8 +287,8 @@ export function Hero() {
                 <BrainCircuit className="text-electric-blue w-6 h-6" />
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-200">Agent Online</div>
-                <div className="text-[10px] text-green-400">RAG · Tools · Memory</div>
+                <div className="text-xs font-bold text-slate-200">Audit Agent Online</div>
+                <div className="text-[10px] text-green-400">Video · RAG · GPT-4o</div>
               </div>
             </motion.div>
           </motion.div>
@@ -279,15 +305,15 @@ export function Hero() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-3xl font-bold text-white mb-1">4.0</span>
+              <span className="text-3xl font-bold text-white mb-1"><CountUp value={4.0} decimals={1} /></span>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Cum. GPA</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-3xl font-bold text-white mb-1">5+</span>
+              <span className="text-3xl font-bold text-white mb-1"><CountUp value={5} suffix="+" /></span>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">AI Agents Built</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-3xl font-bold text-white mb-1">2027</span>
+              <span className="text-3xl font-bold text-white mb-1"><CountUp value={2027} /></span>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Graduation Year</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">

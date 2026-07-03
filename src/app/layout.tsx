@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { ParticleField } from "@/components/effects/particle-field";
 import { CursorGlow } from "@/components/effects/cursor-glow";
 import { ScrollProgress } from "@/components/effects/scroll-progress";
+import { siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +19,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Pranshu Ghori | AI Engineer",
   description: "Portfolio of Pranshu Ghori — AI engineer building LLM agents, RAG systems, and the production data pipelines that power them, on Azure and AWS.",
+  openGraph: {
+    title: "Pranshu Ghori | AI Engineer",
+    description: "AI engineer building LLM agents, RAG systems, and production data pipelines on Azure and AWS.",
+    url: siteUrl,
+    siteName: "Pranshu Ghori",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pranshu Ghori | AI Engineer",
+    description: "AI engineer building LLM agents, RAG systems, and production data pipelines on Azure and AWS.",
+  },
 };
 
 export default function RootLayout({
