@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pranshu Ghori | AI Engineer & Data Scientist",
-  description: "Portfolio of Pranshu Ghori — AI engineer and data scientist building production data pipelines, LLM agents, and RAG systems on AWS and Azure.",
+  title: "Pranshu Ghori | AI Engineer",
+  description: "Portfolio of Pranshu Ghori — AI engineer building LLM agents, RAG systems, and the production data pipelines that power them, on Azure and AWS.",
 };
 
 export default function RootLayout({

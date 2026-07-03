@@ -55,7 +55,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl md:text-2xl font-medium text-slate-300 mb-4 max-w-2xl mx-auto md:mx-0"
           >
-            AI Engineer · Data Science · LLM Agents
+            AI Engineer · LLM Agents · RAG Systems
           </motion.p>
 
           <motion.p
@@ -64,7 +64,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed text-lg"
           >
-            Shipping production data pipelines and AI systems — from serverless analytics on AWS to agentic RAG pipelines on Azure.
+            I build AI systems that ship — agentic RAG pipelines on Azure, LLM-powered workflows, and the production data infrastructure on AWS that feeds them.
           </motion.p>
 
           <motion.div

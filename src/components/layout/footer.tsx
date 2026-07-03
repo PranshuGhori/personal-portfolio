@@ -9,8 +9,8 @@ export function Footer() {
           Pranshu Ghori
         </div>
         <p className="text-slate-400 text-center max-w-md mb-8">
-          AI Engineer · Data Science · LLM Agents <br />
-          Shipping production data pipelines and intelligent systems.
+          AI Engineer · LLM Agents · RAG Systems <br />
+          Building AI systems that ship — from agents to the pipelines that power them.
         </p>
 
         <div className="flex space-x-6 mb-12">

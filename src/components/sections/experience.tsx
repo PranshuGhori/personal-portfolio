@@ -87,7 +87,7 @@ export function Experience() {
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
         <SectionHeading
           title="Experience"
-          subtitle="From production data pipelines to ML engineering — building systems that ship."
+          subtitle="Production data infrastructure, ML engineering, and applied AI — systems that ship."
         />
 
         <div className="relative border-l-2 border-white/10 ml-4 md:ml-0 md:pl-0 mt-12 space-y-16">

@@ -16,7 +16,7 @@ export function Contact() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <SectionHeading
           title="Get In Touch"
-          subtitle="Currently a Data Science Co-Op at Command Credit Corp — open to Summer 2027 AI, ML, and data science opportunities."
+          subtitle="Currently a Data Science Co-Op at Command Credit Corp — open to Summer 2027 AI engineering internships and opportunities."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 max-w-5xl mx-auto">
