@@ -18,7 +18,7 @@ export function Education() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="glass p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden group hover:border-violet/30 transition-colors">
+          <div className="glass lift p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden group hover:border-violet/30">
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-violet/10 rounded-full blur-[80px] -mr-32 -mt-32 transition-opacity group-hover:opacity-100 opacity-50" />
             

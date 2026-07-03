@@ -1,11 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Mail, BrainCircuit } from "lucide-react";
 import Link from "next/link";
 
+const TYPED_ROLES = ["LLM Agents", "RAG Systems", "Agentic Workflows", "Production AI"];
+
+function useTypewriter(words: string[]) {
+  const [text, setText] = useState(words[0]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let wordIndex = 0;
+    let charIndex = words[0].length;
+    let deleting = true;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const step = () => {
+      const current = words[wordIndex];
+      charIndex = deleting ? charIndex - 1 : charIndex + 1;
+      setText(current.slice(0, charIndex));
+      let delay = deleting ? 40 : 85;
+      if (!deleting && charIndex === current.length) {
+        deleting = true;
+        delay = 2200;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        delay = 350;
+      }
+      timer = setTimeout(step, delay);
+    };
+
+    timer = setTimeout(step, 2200);
+    return () => clearTimeout(timer);
+  }, [words]);
+
+  return text;
+}
+
 export function Hero() {
+  const typed = useTypewriter(TYPED_ROLES);
+
+  const tiltRef = useRef<HTMLDivElement>(null);
+  const rotateX = useSpring(useMotionValue(0), { stiffness: 150, damping: 20 });
+  const rotateY = useSpring(useMotionValue(0), { stiffness: 150, damping: 20 });
+
+  const handleTilt = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = tiltRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    rotateY.set(px * 14);
+    rotateX.set(-py * 14);
+  };
+
+  const resetTilt = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+  };
+
   return (
     <section 
       id="hero" 
@@ -55,7 +111,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl md:text-2xl font-medium text-slate-300 mb-4 max-w-2xl mx-auto md:mx-0"
           >
-            AI Engineer · LLM Agents · RAG Systems
+            AI Engineer · <span className="text-gradient">{typed}</span>
+            <span className="type-cursor text-electric-blue" aria-hidden="true">|</span>
           </motion.p>
 
           <motion.p
@@ -96,12 +153,19 @@ export function Hero() {
 
         {/* Premium Visual / Floating UI */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 w-full max-w-md hidden md:block perspective-1000"
+          className="flex-1 w-full max-w-md hidden md:block"
+          style={{ perspective: 1000 }}
         >
-          <div className="relative glass border-white/10 rounded-2xl p-6 shadow-2xl overflow-hidden group">
+          <motion.div
+            ref={tiltRef}
+            onMouseMove={handleTilt}
+            onMouseLeave={resetTilt}
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            className="relative glass border-white/10 rounded-2xl p-6 shadow-2xl overflow-hidden group"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 via-transparent to-violet/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10">
@@ -201,7 +265,7 @@ export function Hero() {
                 <div className="text-[10px] text-green-400">RAG · Tools · Memory</div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 

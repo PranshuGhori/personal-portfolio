@@ -67,7 +67,7 @@ export function Skills() {
           {SKILL_GROUPS.map((group) => (
             <div
               key={group.title}
-              className={`glass p-8 rounded-3xl border border-white/5 shadow-xl ${group.hoverBorder} transition-colors`}
+              className={`glass lift p-8 rounded-3xl border border-white/5 shadow-xl ${group.hoverBorder}`}
             >
               <h3 className="text-lg font-semibold mb-5 text-white flex items-center">
                 <span className={`w-8 h-px ${ACCENT_BAR[group.accent]} mr-4 shrink-0`} />

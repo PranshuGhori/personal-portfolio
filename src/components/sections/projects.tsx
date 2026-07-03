@@ -142,6 +142,8 @@ export function Projects() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="h-full"
               >
                 <Card className={`h-full flex flex-col group overflow-hidden ${g.hover}`}>
                   <div className={`h-2 w-full ${g.bar}`} />

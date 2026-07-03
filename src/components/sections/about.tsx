@@ -44,7 +44,7 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            <div className="glass p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-electric-blue/30 transition-colors">
+            <div className="glass lift p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-electric-blue/30 transition-colors">
               <div className="p-3 bg-electric-blue/10 rounded-lg mb-4 text-electric-blue">
                 <BrainCircuit size={24} />
               </div>
@@ -54,7 +54,7 @@ export function About() {
               </p>
             </div>
 
-            <div className="glass p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-violet/30 transition-colors sm:translate-y-8">
+            <div className="glass lift p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-violet/30 transition-colors sm:translate-y-8">
               <div className="p-3 bg-violet/10 rounded-lg mb-4 text-violet">
                 <Network size={24} />
               </div>
@@ -64,7 +64,7 @@ export function About() {
               </p>
             </div>
 
-            <div className="glass p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-cyan/30 transition-colors">
+            <div className="glass lift p-6 rounded-2xl flex flex-col items-start border border-white/5 hover:border-cyan/30 transition-colors">
               <div className="p-3 bg-cyan/10 rounded-lg mb-4 text-cyan">
                 <Database size={24} />
               </div>
