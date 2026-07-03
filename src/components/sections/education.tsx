@@ -51,7 +51,7 @@ export function Education() {
                   
                   <div className="flex items-center bg-white/5 border border-white/10 px-4 py-2 rounded-full">
                     <Award className="w-4 h-4 text-electric-blue mr-2" />
-                    <span className="text-slate-300 text-sm font-medium">Dean's Honor List (Fall 2024, Spring 2025)</span>
+                    <span className="text-slate-300 text-sm font-medium">Dean&apos;s Honor List (Fall 2024, Spring 2025)</span>
                   </div>
                 </div>
               </div>

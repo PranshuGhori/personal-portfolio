@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Mail, BrainCircuit } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
@@ -14,8 +13,16 @@ export function Hero() {
     >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-[40rem] h-[40rem] bg-electric-blue/10 rounded-full blur-[120px]" />
-        <div className="absolute top-[40%] right-[10%] w-[30rem] h-[30rem] bg-violet/10 rounded-full blur-[100px]" />
+        <motion.div
+          animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+          transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+          className="absolute top-[20%] left-[10%] w-[40rem] h-[40rem] bg-electric-blue/10 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
+          transition={{ repeat: Infinity, duration: 22, ease: "easeInOut" }}
+          className="absolute top-[40%] right-[10%] w-[30rem] h-[30rem] bg-violet/10 rounded-full blur-[100px]"
+        />
         
         {/* Subtle Grid */}
         <div 
@@ -33,12 +40,12 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-flex items-center space-x-2 bg-white/5 rounded-full px-3 py-1 mb-6 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-electric-blue animate-pulse" />
-              <span className="text-sm font-medium text-slate-300">Available for Summer 2026 Internships</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-sm font-medium text-slate-300">Data Science Co-Op @ Command Credit Corp</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-              Hi, I'm <span className="text-gradient">Pranshu Ghori</span>
+              Hi, I&apos;m <span className="text-gradient">Pranshu Ghori</span>
             </h1>
           </motion.div>
 
@@ -48,7 +55,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl md:text-2xl font-medium text-slate-300 mb-4 max-w-2xl mx-auto md:mx-0"
           >
-            AI Engineer · LLM Agents · RAG Systems
+            AI Engineer · Data Science · LLM Agents
           </motion.p>
 
           <motion.p
@@ -57,7 +64,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-400 mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed text-lg"
           >
-            Building intelligent systems at the intersection of data, language, and autonomous AI.
+            Shipping production data pipelines and AI systems — from serverless analytics on AWS to agentic RAG pipelines on Azure.
           </motion.p>
 
           <motion.div
@@ -136,7 +143,7 @@ export function Hero() {
                   <span className="text-slate-300">(</span>
                   <span className="text-cyan">model</span>
                   <span className="text-slate-300">=</span>
-                  <span className="text-green-400">"gpt-4o"</span>
+                  <span className="text-green-400">&quot;gpt-4o&quot;</span>
                   <span className="text-slate-300">)</span>
                 </div>
                 <div className="flex items-start">
@@ -150,7 +157,7 @@ export function Hero() {
                   <span className="text-slate-300">graph.</span>
                   <span className="text-cyan">add_node</span>
                   <span className="text-slate-300">(</span>
-                  <span className="text-green-400">"retrieve"</span>
+                  <span className="text-green-400">&quot;retrieve&quot;</span>
                   <span className="text-slate-300">, retriever)</span>
                 </div>
                 <div className="flex items-start">
@@ -158,7 +165,7 @@ export function Hero() {
                   <span className="text-slate-300">graph.</span>
                   <span className="text-cyan">add_node</span>
                   <span className="text-slate-300">(</span>
-                  <span className="text-green-400">"reason"</span>
+                  <span className="text-green-400">&quot;reason&quot;</span>
                   <span className="text-slate-300">, llm_step)</span>
                 </div>
                 <div className="flex items-start">
@@ -166,9 +173,9 @@ export function Hero() {
                   <span className="text-slate-300">graph.</span>
                   <span className="text-cyan">add_edge</span>
                   <span className="text-slate-300">(</span>
-                  <span className="text-green-400">"retrieve"</span>
+                  <span className="text-green-400">&quot;retrieve&quot;</span>
                   <span className="text-slate-300">, </span>
-                  <span className="text-green-400">"reason"</span>
+                  <span className="text-green-400">&quot;reason&quot;</span>
                   <span className="text-slate-300">)</span>
                 </div>
                 <div className="flex items-start">
@@ -199,7 +206,12 @@ export function Hero() {
       </div>
 
       {/* Featured Metrics Strip */}
-      <div className="absolute bottom-0 left-0 w-full border-t border-white/5 bg-black/40 backdrop-blur-md py-6 z-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="absolute bottom-0 left-0 w-full border-t border-white/5 bg-black/40 backdrop-blur-md py-6 z-20"
+      >
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
             <div className="flex flex-col items-center justify-center text-center">
@@ -215,12 +227,12 @@ export function Hero() {
               <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Graduation Year</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <span className="text-xl font-bold text-white mb-1 text-electric-blue">LLM Agents</span>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Primary Focus</span>
+              <span className="text-xl font-bold mb-1 text-electric-blue">AWS · Azure</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider font-medium">Production Cloud</span>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

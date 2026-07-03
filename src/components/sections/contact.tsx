@@ -14,9 +14,9 @@ export function Contact() {
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <SectionHeading 
-          title="Get In Touch" 
-          subtitle="Currently seeking Fall 2025 and Summer 2026 data analytics and ML internships."
+        <SectionHeading
+          title="Get In Touch"
+          subtitle="Currently a Data Science Co-Op at Command Credit Corp — open to Summer 2027 AI, ML, and data science opportunities."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 max-w-5xl mx-auto">
@@ -74,23 +74,34 @@ export function Contact() {
             <div className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden">
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
               
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const data = new FormData(e.currentTarget);
+                  const subject = String(data.get("subject") || "Hello from your portfolio");
+                  const body = `${data.get("message") || ""}\n\n— ${data.get("name") || ""} (${data.get("email") || ""})`;
+                  window.location.href = `mailto:pranshughori203@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                }}
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-slate-300">Name</label>
-                    <input 
-                      id="name" 
-                      type="text" 
-                      placeholder="John Doe" 
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="John Doe"
                       className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all"
                     />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
-                    <input 
-                      id="email" 
-                      type="email" 
-                      placeholder="john@example.com" 
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="john@example.com"
                       className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all"
                     />
                   </div>
@@ -98,18 +109,20 @@ export function Contact() {
                 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium text-slate-300">Subject</label>
-                  <input 
-                    id="subject" 
-                    type="text" 
-                    placeholder="Opportunity discussed" 
+                  <input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    placeholder="Opportunity discussed"
                     className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-slate-300">Message</label>
-                  <textarea 
-                    id="message" 
+                  <textarea
+                    id="message"
+                    name="message"
                     rows={5}
                     placeholder="Hello Pranshu..." 
                     className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-electric-blue/50 focus:border-transparent transition-all resize-none"

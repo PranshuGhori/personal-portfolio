@@ -4,11 +4,32 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Briefcase, Calendar } from "lucide-react";
 
-const EXPERIENCES = [
+type ExperienceItem = {
+  role: string;
+  company: string;
+  date: string;
+  bullets: string[];
+  color: string;
+  current?: boolean;
+};
+
+const EXPERIENCES: ExperienceItem[] = [
+  {
+    role: "Data Science Co-Op",
+    company: "Command Credit Corp – Scottsdale, AZ",
+    date: "May 2026 – Dec 2026",
+    current: true,
+    bullets: [
+      "Build and deploy production data pipelines on AWS serverless infrastructure (Lambda, SST) for CommandInsight — an internal risk analytics platform powering the credit underwriting team.",
+      "Own distributional analysis of Oxxford's cur_fin Risk Index in production — identified a right-skewed, gamma-distributed structure across the live dataset and shipped a three-tier classification scheme now used for risk segmentation.",
+      "Run fill-rate analysis across production Oxxford data feeds to quantify field-level completeness and surface data quality issues before they reach downstream models."
+    ],
+    color: "emerald"
+  },
   {
     role: "Data Analytics Assistant",
     company: "ET Network Infrastructure – Arizona State University",
-    date: "Jun 2025 – Present",
+    date: "Jun 2025 – May 2026",
     bullets: [
       "Analyzed network hardware inventory data in Python, Pandas, and SQL across 1,000+ assets — identifying discrepancies, null fields, and duplicate records to improve data quality for audit cycles.",
       "Built automated ETL pipelines to clean, reconcile, and visualize inventory datasets using Python and Power BI — eliminating manual reconciliation steps and delivering recurring dashboards to infrastructure leadership."
@@ -37,17 +58,42 @@ const EXPERIENCES = [
   }
 ];
 
+const COLOR_CLASSES: Record<string, { dot: string; bullet: string; hoverBorder: string }> = {
+  emerald: {
+    dot: "bg-emerald-400 border-emerald-400/20 shadow-[0_0_10px_rgba(52,211,153,0.8)]",
+    bullet: "bg-emerald-400",
+    hoverBorder: "hover:border-emerald-400/30",
+  },
+  "electric-blue": {
+    dot: "bg-electric-blue border-electric-blue/20 shadow-[0_0_10px_rgba(0,240,255,0.8)]",
+    bullet: "bg-electric-blue",
+    hoverBorder: "hover:border-electric-blue/30",
+  },
+  violet: {
+    dot: "bg-violet border-violet/20 shadow-[0_0_10px_rgba(139,92,246,0.8)]",
+    bullet: "bg-violet",
+    hoverBorder: "hover:border-violet/30",
+  },
+  orange: {
+    dot: "bg-orange-400 border-orange-400/20 shadow-[0_0_10px_rgba(251,146,60,0.8)]",
+    bullet: "bg-orange-400",
+    hoverBorder: "hover:border-orange-400/30",
+  },
+};
+
 export function Experience() {
   return (
     <section id="experience" className="py-24 relative">
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
-        <SectionHeading 
-          title="Experience" 
-          subtitle="My professional journey in data analytics and web technologies."
+        <SectionHeading
+          title="Experience"
+          subtitle="From production data pipelines to ML engineering — building systems that ship."
         />
 
         <div className="relative border-l-2 border-white/10 ml-4 md:ml-0 md:pl-0 mt-12 space-y-16">
-          {EXPERIENCES.map((exp, index) => (
+          {EXPERIENCES.map((exp, index) => {
+            const c = COLOR_CLASSES[exp.color] ?? COLOR_CLASSES["electric-blue"];
+            return (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -57,49 +103,60 @@ export function Experience() {
               className="relative pl-8 md:pl-0"
             >
               {/* Timeline dot */}
-              <div 
-                className={`absolute left-0 md:left-1/2 w-4 h-4 rounded-full border-4 border-[#020617] -translate-x-[9px] md:-translate-x-1/2 mt-1.5 z-10
-                  ${exp.color === 'electric-blue' ? 'bg-electric-blue border-electric-blue/20 shadow-[0_0_10px_rgba(0,240,255,0.8)]' : exp.color === 'violet' ? 'bg-violet border-violet/20 shadow-[0_0_10px_rgba(139,92,246,0.8)]' : 'bg-orange-400 border-orange-400/20 shadow-[0_0_10px_rgba(251,146,60,0.8)]'}
-                `} 
+              <div
+                className={`absolute left-0 md:left-1/2 w-4 h-4 rounded-full border-4 border-[#020617] -translate-x-[9px] md:-translate-x-1/2 mt-1.5 z-10 ${c.dot}`}
               />
-              
+
               <div className={`flex flex-col md:flex-row items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 <div className="w-full md:w-1/2" />
-                
+
                 {/* Content Card */}
                 <div className={`w-full md:w-1/2 p-4 text-left ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="glass p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-colors shadow-lg group">
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className={`glass p-6 rounded-2xl border border-white/5 ${c.hoverBorder} transition-colors shadow-lg group`}
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                       <h3 className="text-xl font-bold text-white group-hover:text-cyan transition-colors">
                         {exp.role}
                       </h3>
-                      <div className="flex items-center text-xs font-medium text-slate-400 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">
-                        <Calendar className="w-3 h-3 mr-1.5" />
-                        {exp.date}
+                      <div className="flex items-center gap-2">
+                        {exp.current && (
+                          <span className="flex items-center text-xs font-semibold text-emerald-300 bg-emerald-400/10 border border-emerald-400/30 px-3 py-1 rounded-full whitespace-nowrap">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5" />
+                            Current
+                          </span>
+                        )}
+                        <div className="flex items-center text-xs font-medium text-slate-400 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">
+                          <Calendar className="w-3 h-3 mr-1.5" />
+                          {exp.date}
+                        </div>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center text-sm font-medium text-slate-300 mb-6">
                       <Briefcase className="w-4 h-4 mr-2" />
                       {exp.company}
                     </div>
-                    
+
                     <ul className="space-y-3">
                       {exp.bullets.map((bullet, idx) => (
                         <li key={idx} className="flex items-start text-sm text-slate-400">
-                          <span className={`min-w-[5px] h-[5px] rounded-full mt-2 mr-3 ${exp.color === 'electric-blue' ? 'bg-electric-blue' : exp.color === 'violet' ? 'bg-violet' : 'bg-orange-400'}`} />
+                          <span className={`min-w-[5px] h-[5px] rounded-full mt-2 mr-3 ${c.bullet}`} />
                           <span className="leading-relaxed">{bullet}</span>
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
           
           {/* Vertical line specifically for Desktop centered view */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-0.5 bg-gradient-to-b from-electric-blue/50 via-violet/50 to-transparent -translate-x-1/2 z-0" />
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-0.5 bg-gradient-to-b from-emerald-400/50 via-violet/50 to-transparent -translate-x-1/2 z-0" />
         </div>
       </div>
     </section>

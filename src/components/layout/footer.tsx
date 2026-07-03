@@ -9,13 +9,13 @@ export function Footer() {
           Pranshu Ghori
         </div>
         <p className="text-slate-400 text-center max-w-md mb-8">
-          AI Engineer · LLM Agents · RAG Systems <br />
-          Building intelligent systems at the intersection of data, language, and autonomous AI.
+          AI Engineer · Data Science · LLM Agents <br />
+          Shipping production data pipelines and intelligent systems.
         </p>
 
         <div className="flex space-x-6 mb-12">
           <a
-            href="https://github.com"
+            href="https://github.com/PranshuGhori"
             target="_blank"
             rel="noreferrer"
             className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200"
@@ -24,7 +24,7 @@ export function Footer() {
             <Github size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/pranshughori"
             target="_blank"
             rel="noreferrer"
             className="text-slate-400 hover:text-electric-blue transition-colors hover:scale-110 transform duration-200"

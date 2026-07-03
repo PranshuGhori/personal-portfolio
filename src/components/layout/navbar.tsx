@@ -75,7 +75,7 @@ export function Navbar() {
             <Link href="#contact">Contact</Link>
           </Button>
           <Button variant="primary" asChild>
-            <Link href="#resume">Resume</Link>
+            <Link href="/resume.pdf" target="_blank">Resume</Link>
           </Button>
         </div>
 
@@ -111,7 +111,7 @@ export function Navbar() {
               <Link href="#contact" className="w-full">Contact</Link>
             </Button>
             <Button variant="primary" asChild onClick={() => setMobileMenuOpen(false)}>
-              <Link href="#resume" className="w-full">Resume</Link>
+              <Link href="/resume.pdf" target="_blank" className="w-full">Resume</Link>
             </Button>
           </div>
         </div>

@@ -23,14 +23,14 @@ const SKILL_GROUPS = [
     accent: "cyan",
     hoverBorder: "hover:border-cyan-400/20",
     badgeHover: "hover:border-cyan-400/50 hover:bg-cyan-400/10",
-    skills: ["Python", "Go", "Java", "SQL", "Algorithms & Data Structures", "Scalable Architecture", "Design Patterns", "FastAPI", "REST APIs", "Git/GitHub"],
+    skills: ["Python", "Go", "Java", "SQL", "AWS Lambda", "SST", "Serverless Architecture", "Algorithms & Data Structures", "Scalable Architecture", "Design Patterns", "FastAPI", "REST APIs", "Git/GitHub"],
   },
   {
     title: "Data & Visualization",
     accent: "orange",
     hoverBorder: "hover:border-orange-400/20",
     badgeHover: "hover:border-orange-400/50 hover:bg-orange-400/10",
-    skills: ["Pandas", "NumPy", "Matplotlib", "Tableau", "Power BI", "Excel", "Jupyter", "Alteryx", "Amazon Redshift", "ServiceNow", "Azure Video Indexer", "MLOps"],
+    skills: ["Pandas", "NumPy", "Statistical Modeling", "Distributional Analysis", "Data Quality Analysis", "Matplotlib", "Tableau", "Power BI", "Excel", "Jupyter", "Alteryx", "Amazon Redshift", "Azure Video Indexer", "MLOps"],
   },
 ];
 
