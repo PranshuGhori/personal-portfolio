@@ -21,8 +21,8 @@ const EXPERIENCES: ExperienceItem[] = [
     current: true,
     bullets: [
       "Build and deploy production data pipelines on AWS serverless infrastructure (Lambda, SST) for CommandInsight — an internal risk analytics platform powering the credit underwriting team.",
-      "Own distributional analysis of Oxxford's cur_fin Risk Index in production — identified a right-skewed, gamma-distributed structure across the live dataset and shipped a three-tier classification scheme now used for risk segmentation.",
-      "Run fill-rate analysis across production Oxxford data feeds to quantify field-level completeness and surface data quality issues before they reach downstream models."
+      "Own distributional analysis of a financial risk index across a 72M-record production dataset — identified a right-skewed, gamma-distributed structure and shipped a three-tier classification scheme now used for risk segmentation.",
+      "Run fill-rate analysis across 72M records of production data feeds to quantify field-level completeness and surface data quality issues before they reach downstream models."
     ],
     color: "emerald"
   },
