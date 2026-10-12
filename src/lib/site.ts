@@ -1,12 +1,7 @@
-// Canonical origin. Set NEXT_PUBLIC_SITE_URL when the site moves to a custom domain.
-const productionUrl = "https://pranshughori.com";
+// Canonical origin: the www host, since the bare domain redirects to it. Override with NEXT_PUBLIC_SITE_URL.
+const productionUrl = "https://www.pranshughori.com";
 
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : productionUrl)
-).replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? productionUrl).replace(/\/$/, "");
 
 export const siteTitle = "Pranshu Ghori — Data Science, ML & AI";
 export const siteDescription =
