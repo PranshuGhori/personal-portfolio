@@ -13,24 +13,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#020617",
-          borderRadius: "14px",
-          border: "2px solid rgba(0,240,255,0.4)",
+          background: "#121211",
+          color: "#f3efe8",
+          fontSize: "26px",
+          letterSpacing: "1px",
+          borderRadius: "8px",
         }}
       >
-        <div
-          style={{
-            fontSize: "30px",
-            fontWeight: 700,
-            background: "linear-gradient(135deg, #00f0ff, #8b5cf6)",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          PG
-        </div>
+        PG
       </div>
     ),
-    { ...size }
+    size,
   );
 }
