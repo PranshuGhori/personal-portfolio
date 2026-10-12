@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pranshu Ghori — portfolio
 
-## Getting Started
+Personal site for Pranshu Ghori (Data Science, ML, and AI). Next.js App Router, React, TypeScript, Tailwind CSS 4.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
+npm run lint
+npm run typecheck
+npm test           # content-shape and content-safety checks
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm test` needs Node 22.18 or newer (it imports the TypeScript content module directly).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | What |
+|---|---|
+| `src/content/public.ts` | The only content source: profile, education, experience, case studies, projects, toolkit. Public-safe by design. |
+| `src/app/page.tsx` | Homepage composition |
+| `src/app/work/` | `/work` index and statically generated `/work/[slug]` case studies |
+| `src/components/home/` | Homepage sections |
+| `src/components/work/` | Case-study card, filter, simplified diagrams, synthetic examples |
+| `src/components/layout/` | Header (mobile menu, theme toggle) and footer |
+| `src/lib/site.ts` | Canonical URL and default metadata |
 
-## Learn More
+## Content rules
 
-To learn more about Next.js, take a look at the following resources:
+Professional work is described through anonymized, qualitative summaries and fully synthetic examples.
+`publicMetrics` stays empty until a number is explicitly approved for public use. `npm test` fails if
+employer case studies contain digits, internal-looking paths or references, or links other than the
+owner's verified public profiles and repositories.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+An optional, gitignored `.content-denylist.local` (one term per line) adds private terms that must never
+appear in `src/` or in the built output under `.next/`. Run `npm test` after `npm run build` to scan both.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configuration
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set `NEXT_PUBLIC_SITE_URL` to override the canonical origin (for example, a custom domain).
